@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3D Model Viewer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- INTRO SCREEN -->
+  <div id="intro-screen">
+    <canvas id="intro-canvas"></canvas>
+    <div id="intro-ui">
+      <div id="intro-title">ENTER THE FIELD</div>
+      <button id="enter-button">Enter</button>
+    </div>
+  </div>
+
+  <!-- FULLSCREEN IMAGE OVERLAY -->
+  <div id="info-image-overlay">
+    <img id="info-image" alt="" />
+  </div>
+
+  <!-- INFO PANEL -->
+  <div id="info-panel">
+    <button id="info-close" aria-label="Close">×</button>
+    <div id="info-title"></div>
+    <div id="info-desc"></div>
+  </div>
+
+  <!-- BOTTOM UI -->
+  <div id="bottom-ui-wrap">
+    <div id="bottom-bar">
+      <button class="ui-btn view-btn" data-view="default">3D View</button>
+
+      <div class="ui-dropdown">
+        <button class="ui-btn dropdown-toggle" id="drawings-button">Drawings</button>
+        <div id="drawings-menu" class="dropdown-menu hidden">
+          <button class="dropdown-item view-btn" data-view="plan1">8th Floor Plan</button>
+          <button class="dropdown-item view-btn" data-view="plan2">Ground Plan</button>
+          <button class="dropdown-item view-btn" data-view="section">Section</button>
+        </div>
+      </div>
+
+      <div class="ui-dropdown">
+        <button class="ui-btn dropdown-toggle" id="shadow-study-button">Shadow Study</button>
+        <div id="shadow-slider-wrap" class="dropdown-panel hidden">
+          <input id="shadow-slider" type="range" min="0" max="360" value="45" />
+        </div>
+      </div>
+
+      <button class="ui-btn" id="explode-button">Explode</button>
+    </div>
+
+    <button class="ui-btn" id="concept-button">Concept</button>
+  </div>
+
+  <!-- CHUNK BUTTON -->
+  <button class="ui-btn" id="chunk-button">Chunk</button>
+
+  <!-- CHUNK DETAIL BUTTON -->
+  <button class="ui-btn" id="chunk-drawing-button">Detail</button>
+
+  <!-- CHUNK DRAWING OVERLAY -->
+  <div id="chunk-drawing-overlay">
+    <button id="chunk-drawing-close" aria-label="Close">×</button>
+    <img id="chunk-drawing-image" alt="Chunk Drawing" />
+  </div>
+
+  <!-- CONCEPT OVERLAY -->
+  <div id="concept-overlay" class="hidden">
+    <canvas id="concept-stars"></canvas>
+    <canvas id="concept-three-canvas"></canvas>
+    <button id="concept-close" aria-label="Close">×</button>
+  </div>
+
+  <div id="section-backdrop"></div>
+
+  <div id="drawing-overlay">
+    <div id="plan1-container" class="plan-container">
+      <img id="overlay-plan1" class="drawing-image" alt="Plan 1" />
+    </div>
+
+    <div id="plan2-container" class="plan-container">
+      <img id="overlay-plan2" class="drawing-image" alt="Plan 2" />
+    </div>
+
+    <img id="overlay-section" class="drawing-image" alt="Section" />
+  </div>
+
+  <!-- CHUNK STARFIELD -->
+  <canvas id="chunk-stars"></canvas>
+
+  <!-- MAIN 3D -->
+  <canvas id="canvas"></canvas>
+  <div id="vignette"></div>
+
+  <div id="annotations-overlay">
+    <svg id="annotation-svg" xmlns="http://www.w3.org/2000/svg"></svg>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
